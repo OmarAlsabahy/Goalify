@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.example.goalify.Data.Models.MatchesResponseItem
+import com.example.goalify.Presentation.Adapters.MatchDetailsSelectorsAdapter
 import com.example.goalify.Presentation.ViewModels.MatchDetailsViewModel
 import com.example.goalify.R
 import com.example.goalify.databinding.FragmentMatchDetailsBinding
@@ -38,7 +39,8 @@ class MatchDetailsFragment : Fragment() {
 
         //observe selectors
         viewModel.selectors.observe(viewLifecycleOwner){selectors->
-
+            val adapter = MatchDetailsSelectorsAdapter(selectors)
+            binding.selectorsRecycler.adapter = adapter
         }
     }
 

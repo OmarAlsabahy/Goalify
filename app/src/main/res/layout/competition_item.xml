@@ -32,6 +32,7 @@
             app:layout_constraintStart_toEndOf="@+id/competitionImage"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginEnd="@dimen/_10sdp"
+            android:fontFamily="@font/poppinsregular"
             android:layout_marginStart="@dimen/_10sdp"
             android:id="@+id/competitionName"/>
     </androidx.constraintlayout.widget.ConstraintLayout>

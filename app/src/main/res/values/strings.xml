@@ -16,4 +16,5 @@
     <string name="time">Time</string>
     <string name="week">Week</string>
     <string name="matchstatue">matchStatue</string>
+    <string name="selector">Selector</string>
 </resources>
