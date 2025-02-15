@@ -5,9 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.goalify.Data.Models.MatchesResponseItem
+import com.example.goalify.Presentation.ClickListeners.MatchClickListener
 import com.example.goalify.databinding.LivematchItemBinding
 
-class LiveMatchesAdapter(private val matches: List<MatchesResponseItem>):RecyclerView.Adapter<LiveMatchesAdapter.ViewHolder>() {
+class LiveMatchesAdapter(private val matches: List<MatchesResponseItem>, private val listener :MatchClickListener):RecyclerView.Adapter<LiveMatchesAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = LivematchItemBinding.inflate(LayoutInflater.from(parent.context) , parent , false)
         return ViewHolder(binding)
@@ -23,6 +24,9 @@ class LiveMatchesAdapter(private val matches: List<MatchesResponseItem>):Recycle
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(matches[position])
+        holder.itemView.setOnClickListener {
+            holder.onItemClicked(matches[position])
+        }
     }
 
     inner class ViewHolder(private val binding: LivematchItemBinding) : RecyclerView.ViewHolder(binding.root){
@@ -39,6 +43,10 @@ class LiveMatchesAdapter(private val matches: List<MatchesResponseItem>):Recycle
             Glide.with(binding.root)
                 .load(match.team_away_badge)
                 .into(binding.awayTeamImage)
+        }
+
+        fun onItemClicked(match: MatchesResponseItem) {
+            listener.onMatchClicked(match)
         }
 
     }

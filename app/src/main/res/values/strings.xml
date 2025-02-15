@@ -17,4 +17,13 @@
     <string name="week">Week</string>
     <string name="matchstatue">matchStatue</string>
     <string name="selector">Selector</string>
+    <string name="shots_on_goal">Shots on goal</string>
+    <string name="total_shots">Total Shots</string>
+    <string name="possession">Possession</string>
+    <string name="yellow_cards">Yellow Cards</string>
+    <string name="red_cards">Red Cards</string>
+    <string name="corners">Corners</string>
+    <string name="fouls">Fouls</string>
+    <string name="penalties">Penalties</string>
+    <string name="offsides">Offsides</string>
 </resources>

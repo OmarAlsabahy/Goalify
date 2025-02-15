@@ -153,4 +153,13 @@
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:id="@+id/selectorsRecycler"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@id/selectorsRecyclerHeight"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/fragmentsContainer">
+
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

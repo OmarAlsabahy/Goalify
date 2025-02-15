@@ -3,10 +3,12 @@ package com.example.goalify.Presentation.Adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.goalify.Presentation.ClickListeners.MatchDetailsSelectorsClickListener
 import com.example.goalify.R
 import com.example.goalify.databinding.MatchdetailsselectorItemBinding
 
-class MatchDetailsSelectorsAdapter(private val selectors:List<String>):RecyclerView.Adapter<MatchDetailsSelectorsAdapter.ViewHolder>() {
+class MatchDetailsSelectorsAdapter(private val selectors:List<String>
+,private val listener:MatchDetailsSelectorsClickListener):RecyclerView.Adapter<MatchDetailsSelectorsAdapter.ViewHolder>() {
     private var currentPosition=0
     private var previousPosition = 0
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -25,7 +27,7 @@ class MatchDetailsSelectorsAdapter(private val selectors:List<String>):RecyclerV
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(selectors[position],position)
         holder.itemView.setOnClickListener {
-            holder.onItemClicked(position)
+            holder.onItemClicked(selectors[position],position)
         }
     }
 
@@ -41,12 +43,13 @@ class MatchDetailsSelectorsAdapter(private val selectors:List<String>):RecyclerV
             }
         }
 
-        fun onItemClicked(position: Int) {
+        fun onItemClicked(selector:String,position: Int) {
             if (position!=currentPosition){
                 previousPosition = currentPosition
                 currentPosition = position
                 notifyItemChanged(currentPosition)
                 notifyItemChanged(previousPosition)
+                listener.onSelectorClicked(selector)
             }
         }
 

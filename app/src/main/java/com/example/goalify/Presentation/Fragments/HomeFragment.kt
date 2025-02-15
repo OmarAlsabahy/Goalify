@@ -84,7 +84,7 @@ class HomeFragment : Fragment() , TopCompetitionClickListener ,MatchClickListene
         //observe liveMatches
         viewModel.liveMatches.observe(viewLifecycleOwner){liveMatches->
             if (!liveMatches.isNullOrEmpty()){
-                val adapter = LiveMatchesAdapter(liveMatches)
+                val adapter = LiveMatchesAdapter(liveMatches,this)
                 binding.liveMatchesRecycler.adapter = adapter
             }else{
                 binding.liveMatchesRecycler.visibility = View.GONE

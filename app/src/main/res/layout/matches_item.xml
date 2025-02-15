@@ -67,6 +67,7 @@
                 android:textSize="@dimen/_12sdp"
                 android:textColor="@color/cardNameColor"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:id="@+id/matchStatue"/>
 
 

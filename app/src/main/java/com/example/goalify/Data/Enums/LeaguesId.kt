@@ -4,7 +4,7 @@ enum class LeaguesId(val league_id:Int) {
     laLiga(302),
     egyptianLeague(141),
     premierLeague(152),
-    bundesliga(171),
+    bundesliga(175),
     seriaA(207),
     ligue1(168),
     uefa(3)
