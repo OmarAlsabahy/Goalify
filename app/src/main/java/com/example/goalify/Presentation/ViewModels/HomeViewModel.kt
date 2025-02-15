@@ -13,9 +13,9 @@ import com.example.goalify.Data.Enums.Actions
 import com.example.goalify.Data.Enums.Competition
 import com.example.goalify.Data.Enums.LeaguesId
 import com.example.goalify.Data.Models.MatchesResponseItem
-import com.example.goalify.Domain.Interfaces.ILiveMatchesDomain
-import com.example.goalify.Domain.Interfaces.IMatchesDomain
-import com.example.goalify.Domain.Interfaces.ITopCompetitions
+import com.example.goalify.Domain.LiveMatchesDomain
+import com.example.goalify.Domain.MatchesDomain
+import com.example.goalify.Domain.TopCompetitions
 import com.google.gson.Gson
 import com.google.gson.JsonElement
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -27,8 +27,8 @@ import java.time.format.DateTimeFormatter
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(private val topCompetitions: ITopCompetitions ,
-    private val matchesDomain: IMatchesDomain , private val liveMatchesDomain:ILiveMatchesDomain) : ViewModel() {
+class HomeViewModel @Inject constructor(private val topCompetitions: TopCompetitions,
+                                        private val matchesDomain: MatchesDomain, private val liveMatchesDomain:LiveMatchesDomain) : ViewModel() {
      private val date = getTodayDate()
     private val _competitions = MutableLiveData<Array<Competition>>()
     val competitions : LiveData<Array<Competition>>

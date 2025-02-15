@@ -5,10 +5,6 @@ import com.example.goalify.Data.Intefaces.IDetailsRepo
 import com.example.goalify.Data.Intefaces.IHomeRepo
 import com.example.goalify.Data.Repositories.DetailsRepo
 import com.example.goalify.Data.Repositories.HomeRepo
-import com.example.goalify.Domain.Interfaces.ILiveMatchesDomain
-import com.example.goalify.Domain.Interfaces.IMatchDetailsSelectorsDomain
-import com.example.goalify.Domain.Interfaces.IMatchesDomain
-import com.example.goalify.Domain.Interfaces.ITopCompetitions
 import com.example.goalify.Domain.LiveMatchesDomain
 import com.example.goalify.Domain.MatchDetailsSelectorDomain
 import com.example.goalify.Domain.MatchesDomain
@@ -66,18 +62,18 @@ object Module {
 
     @Provides
     @Singleton
-    fun getITopCompetitions(repo:IHomeRepo):ITopCompetitions{
+    fun getITopCompetitions(repo:IHomeRepo):TopCompetitions{
         return TopCompetitions(repo)
     }
 
     @Provides
     @Singleton
-    fun getIMatchesDomain(repo: IHomeRepo): IMatchesDomain{
+    fun getIMatchesDomain(repo: IHomeRepo): MatchesDomain{
         return MatchesDomain(repo)
     }
     @Provides
     @Singleton
-    fun getILiveMatchesDomain(repo:IHomeRepo):ILiveMatchesDomain{
+    fun getILiveMatchesDomain(repo:IHomeRepo):LiveMatchesDomain{
         return LiveMatchesDomain(repo)
     }
 
@@ -89,7 +85,7 @@ object Module {
 
     @Provides
     @Singleton
-    fun getMatchSelectorsDomain(repo:IDetailsRepo):IMatchDetailsSelectorsDomain{
+    fun getMatchSelectorsDomain(repo:IDetailsRepo):MatchDetailsSelectorDomain{
         return MatchDetailsSelectorDomain(repo)
     }
 

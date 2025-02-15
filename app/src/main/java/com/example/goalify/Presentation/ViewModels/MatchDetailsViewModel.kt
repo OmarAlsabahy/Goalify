@@ -4,12 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.goalify.Data.Models.MatchesResponseItem
-import com.example.goalify.Domain.Interfaces.IMatchDetailsSelectorsDomain
+import com.example.goalify.Domain.MatchDetailsSelectorDomain
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class MatchDetailsViewModel @Inject constructor(private val selectorsDomain:IMatchDetailsSelectorsDomain):ViewModel() {
+class MatchDetailsViewModel @Inject constructor(private val selectorsDomain:MatchDetailsSelectorDomain):ViewModel() {
     private val _match = MutableLiveData<MatchesResponseItem>()
     val match : LiveData<MatchesResponseItem>
         get() = _match
