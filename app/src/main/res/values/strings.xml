@@ -26,4 +26,9 @@
     <string name="fouls">Fouls</string>
     <string name="penalties">Penalties</string>
     <string name="offsides">Offsides</string>
+    <string name="coach">Coach</string>
+    <string name="starting_lineup">Starting LineUp</string>
+    <string name="no_lineup_founded">No LineUp Founded</string>
+    <string name="substitutes">Substitutes</string>
+    <string name="substitutions">Substitutions</string>
 </resources>

@@ -33,9 +33,9 @@ class MatchDetailsFragment : Fragment() , MatchDetailsSelectorsClickListener {
     }
 
     private fun navigateToSelector(selector: String) {
-        when(selector){
-            MatchDetailsSelectors.Stats.name->{
-                viewModel.match.observe(viewLifecycleOwner){match->
+        viewModel.match.observe(viewLifecycleOwner){match->
+            when(selector){
+                MatchDetailsSelectors.Stats.name->{
                     val fragment = StatsFragment()
                     val args = Bundle()
                     args.putParcelable("match",match)
@@ -43,10 +43,20 @@ class MatchDetailsFragment : Fragment() , MatchDetailsSelectorsClickListener {
                     childFragmentManager.beginTransaction()
                         .replace(R.id.fragmentsContainer , fragment)
                         .commit()
-                }
 
+                }MatchDetailsSelectors.LineUp.name->{
+                    val fragment = LineUpFragment()
+                    val args = Bundle()
+                    args.putParcelable("match",match)
+                    fragment.arguments = args
+                    childFragmentManager.beginTransaction()
+                        .replace(R.id.fragmentsContainer,fragment)
+                        .commit()
+
+                 }
             }
         }
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
