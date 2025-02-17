@@ -67,6 +67,7 @@
                         android:textSize="@dimen/_15sdp"
                         android:layout_gravity="center"
                         android:layout_weight="0.5"
+                        android:gravity="center"
                         android:id="@+id/homeTeamName"/>
                 </LinearLayout>
                 <LinearLayout
@@ -74,7 +75,7 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:layout_weight="1"
-                    android:weightSum="3"
+                    android:weightSum="4"
                     android:id="@+id/detailsBlock">
                     <TextView
                         android:layout_width="wrap_content"
@@ -94,6 +95,7 @@
                         android:layout_gravity="center"
                         android:fontFamily="@font/poppinsregular"
                         android:textSize="@dimen/_15sdp"
+                        android:gravity="center"
                         android:id="@+id/matchScore"/>
                     <TextView
                         android:layout_width="wrap_content"
@@ -104,7 +106,19 @@
                         android:layout_gravity="center"
                         android:fontFamily="@font/poppinsregular"
                         android:textSize="@dimen/_10sdp"
+                        android:gravity="center"
                         android:id="@+id/matchStatue"/>
+
+                    <TextView
+                        android:id="@+id/stadium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/poppinsregular"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/_15sdp" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="0dp"
@@ -129,6 +143,7 @@
                         android:textSize="@dimen/_15sdp"
                         android:layout_gravity="center"
                         android:layout_weight="0.5"
+                        android:gravity="center"
                         android:id="@+id/awayTeamName"/>
 
                 </LinearLayout>

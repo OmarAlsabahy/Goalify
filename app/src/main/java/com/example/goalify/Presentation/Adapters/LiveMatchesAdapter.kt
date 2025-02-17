@@ -37,6 +37,7 @@ class LiveMatchesAdapter(private val matches: List<MatchesResponseItem>, private
             binding.matchScore.text = match.match_hometeam_score + " : " + match.match_awayteam_score
             binding.competitionName.text = match.league_name
             binding.matchTime.text = match.match_time
+            binding.stadium.text = match.match_stadium
             Glide.with(binding.root)
                 .load(match.team_home_badge)
                 .into(binding.homeTeamImage)

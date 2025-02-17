@@ -3,11 +3,12 @@ package com.example.goalify.Presentation.ViewModels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.goalify.Domain.StateDomain
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class StateViewModel @Inject constructor() : ViewModel() {
+class StateViewModel @Inject constructor(private val stateDomain : StateDomain) : ViewModel() {
     private val _homeShotsOnTarget = MutableLiveData<Int>()
     val homeShotsOnTarget : LiveData<Int>
         get() = _homeShotsOnTarget
@@ -66,19 +67,11 @@ class StateViewModel @Inject constructor() : ViewModel() {
         get() = _awayOffsides
 
     fun getHomeShotsOnTarget(shots:MutableList<String>){
-        var sum = 0
-        for (shot in shots){
-            sum = sum+shot.toInt()
-        }
-        _homeShotsOnTarget.value = sum
+        _homeShotsOnTarget.value = stateDomain.getHomeShotsOnTarget(shots)
     }
 
     fun getAwayShotsOnTarget(shots:MutableList<String>){
-        var sum = 0
-        for (shot in shots){
-            sum = sum+shot.toInt()
-        }
-        _awayShotsOnTarget.value = sum
+        _awayShotsOnTarget.value = stateDomain.getAwayShotsOnTarget(shots)
     }
 
     fun setTotalShots(homeShots:Int,awayShots:Int){
@@ -99,19 +92,13 @@ class StateViewModel @Inject constructor() : ViewModel() {
     }
 
     fun getHomeCorners(corners:MutableList<String>){
-        var sum = 0
-        for (corner in corners){
-            sum = sum+corner.toInt()
-        }
-        _homeCorners.value = sum
+
+        _homeCorners.value = stateDomain.getHomeCorners(corners)
     }
 
     fun getAwayCorners(corners:MutableList<String>){
-        var sum = 0
-        for (corner in corners){
-            sum = sum+corner.toInt()
-        }
-        _awayCorners.value = sum
+
+        _awayCorners.value = stateDomain.getAwayCorners(corners)
     }
 
     fun setFouls(home:String,away: String){
@@ -121,21 +108,15 @@ class StateViewModel @Inject constructor() : ViewModel() {
     }
 
     fun getHomePenalties(penalties:MutableList<String>){
-        var sum = 0
-        for (penalty in penalties){
-            sum = sum+penalty.toInt()
-        }
-        _homePenalties.value = sum
+
+        _homePenalties.value = stateDomain.getHomePenalties(penalties)
 
     }
 
 
     fun getAwayPenalties(penalties: MutableList<String>){
-        var sum = 0
-        for (penalty in penalties){
-            sum = sum+penalty.toInt()
-        }
-        _awayPenalties.value = sum
+
+        _awayPenalties.value = stateDomain.getAwayPenalties(penalties)
     }
 
     fun setOffsides(home:String,away: String){

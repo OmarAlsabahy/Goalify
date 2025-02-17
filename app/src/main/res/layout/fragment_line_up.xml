@@ -5,7 +5,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         tools:context=".Presentation.Fragments.LineUpFragment">
         <TextView
@@ -18,6 +18,7 @@
             android:textSize="@dimen/_15sdp"
             android:fontFamily="@font/poppinsregular"
             android:gravity="center"
+            android:textColor="@color/cardNameColor"
             android:id="@+id/txt_coach"/>
         <TextView
             android:layout_width="wrap_content"
@@ -53,6 +54,7 @@
             android:textSize="@dimen/_15sdp"
             android:fontFamily="@font/poppinsregular"
             android:gravity="center"
+            android:textColor="@color/cardNameColor"
             android:id="@+id/txt_startingLineUp"/>
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="0dp"
@@ -73,6 +75,7 @@
             android:text="@string/no_lineup_founded"
             android:textSize="@dimen/_25sdp"
             android:fontFamily="@font/poppinssemibold"
+            android:textColor="@color/cardNameColor"
             android:id="@+id/txt_noLineUpFounded"
             android:visibility="visible"/>
         <TextView
@@ -86,6 +89,7 @@
             android:textSize="@dimen/_15sdp"
             android:fontFamily="@font/poppinsregular"
             android:gravity="center"
+            android:textColor="@color/cardNameColor"
             android:id="@+id/txt_substitutes"/>
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="0dp"
@@ -106,6 +110,7 @@
             android:text="@string/no_lineup_founded"
             android:textSize="@dimen/_25sdp"
             android:fontFamily="@font/poppinssemibold"
+            android:textColor="@color/cardNameColor"
             android:id="@+id/txt_substitutesnoLineUpFounded"
             android:visibility="visible"/>
         <TextView
@@ -119,6 +124,7 @@
             android:textSize="@dimen/_15sdp"
             android:fontFamily="@font/poppinsregular"
             android:gravity="center"
+            android:textColor="@color/cardNameColor"
             android:id="@+id/txt_substitutions"/>
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="0dp"

@@ -25,43 +25,16 @@ class MatchDetailsFragment : Fragment() , MatchDetailsSelectorsClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val match = MatchDetailsFragmentArgs.fromBundle(requireArguments()).match
-        viewModel.setMatch(match)
-        navigateToSelector(MatchDetailsSelectors.Stats.name)
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_match_details, container, false)
     }
 
-    private fun navigateToSelector(selector: String) {
-        viewModel.match.observe(viewLifecycleOwner){match->
-            when(selector){
-                MatchDetailsSelectors.Stats.name->{
-                    val fragment = StatsFragment()
-                    val args = Bundle()
-                    args.putParcelable("match",match)
-                    fragment.arguments = args
-                    childFragmentManager.beginTransaction()
-                        .replace(R.id.fragmentsContainer , fragment)
-                        .commit()
-
-                }MatchDetailsSelectors.LineUp.name->{
-                    val fragment = LineUpFragment()
-                    val args = Bundle()
-                    args.putParcelable("match",match)
-                    fragment.arguments = args
-                    childFragmentManager.beginTransaction()
-                        .replace(R.id.fragmentsContainer,fragment)
-                        .commit()
-
-                 }
-            }
-        }
-
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding = FragmentMatchDetailsBinding.bind(view)
-
+        val match = MatchDetailsFragmentArgs.fromBundle(requireArguments()).match
+        viewModel.setMatch(match)
+        navigateToSelector(MatchDetailsSelectors.Stats.name)
         //observe match
         viewModel.match.observe(viewLifecycleOwner){match->
             setData(match)
@@ -74,6 +47,47 @@ class MatchDetailsFragment : Fragment() , MatchDetailsSelectorsClickListener {
         }
     }
 
+
+    private fun navigateToSelector(selector: String) {
+        viewModel.match.observe(viewLifecycleOwner){match->
+           if (selector.isNotEmpty()){
+               if (match!=null){
+                   when(selector){
+                       MatchDetailsSelectors.Stats.name->{
+                           val fragment = StatsFragment()
+                           val args = Bundle()
+                           args.putParcelable("match",match)
+                           fragment.arguments = args
+                           childFragmentManager.beginTransaction()
+                               .replace(R.id.fragmentsContainer , fragment)
+                               .commit()
+
+                       }MatchDetailsSelectors.LineUp.name->{
+                       val fragment = LineUpFragment()
+                       val args = Bundle()
+                       args.putParcelable("match",match)
+                       fragment.arguments = args
+                       childFragmentManager.beginTransaction()
+                           .replace(R.id.fragmentsContainer,fragment)
+                           .commit()
+
+                   }MatchDetailsSelectors.Summary.name->{
+                       val fragment = SummaryFragment()
+                       val args = Bundle()
+                       args.putParcelable("match",match)
+                       fragment.arguments = args
+                       childFragmentManager.beginTransaction()
+                           .replace(R.id.fragmentsContainer , fragment)
+                           .commit()
+                   }
+                   }
+               }
+           }
+        }
+
+    }
+
+
     private fun setData(match: MatchesResponseItem?) {
         binding.competitionName.text = match?.league_name
         binding.homeTeamName.text = match?.match_hometeam_name
@@ -81,6 +95,7 @@ class MatchDetailsFragment : Fragment() , MatchDetailsSelectorsClickListener {
         binding.matchScore.text = "${match?.match_hometeam_score} : ${match?.match_awayteam_score}"
         binding.matchStatue.text = match?.match_status
         binding.awayTeamName.text = match?.match_awayteam_name
+        binding.stadium.text = match?.match_stadium
         Glide.with(requireContext())
             .load(match?.team_home_badge)
             .into(binding.homeTeamImage)

@@ -7,7 +7,9 @@ import com.example.goalify.Data.Repositories.DetailsRepo
 import com.example.goalify.Data.Repositories.HomeRepo
 import com.example.goalify.Domain.LiveMatchesDomain
 import com.example.goalify.Domain.MatchDetailsSelectorDomain
+import com.example.goalify.Domain.MatchGoalScorerDomain
 import com.example.goalify.Domain.MatchesDomain
+import com.example.goalify.Domain.StateDomain
 import com.example.goalify.Domain.TopCompetitions
 import dagger.Module
 import dagger.Provides
@@ -87,6 +89,18 @@ object Module {
     @Singleton
     fun getMatchSelectorsDomain(repo:IDetailsRepo):MatchDetailsSelectorDomain{
         return MatchDetailsSelectorDomain(repo)
+    }
+
+    @Provides
+    @Singleton
+    fun getMatchGoalScorerDomain(): MatchGoalScorerDomain {
+        return MatchGoalScorerDomain()
+    }
+
+    @Provides
+    @Singleton
+    fun getStateDomain():StateDomain{
+        return StateDomain()
     }
 
 }
