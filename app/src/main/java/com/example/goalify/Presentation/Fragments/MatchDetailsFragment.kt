@@ -50,8 +50,6 @@ class MatchDetailsFragment : Fragment() , MatchDetailsSelectorsClickListener {
 
     private fun navigateToSelector(selector: String) {
         viewModel.match.observe(viewLifecycleOwner){match->
-           if (selector.isNotEmpty()){
-               if (match!=null){
                    when(selector){
                        MatchDetailsSelectors.Stats.name->{
                            val fragment = StatsFragment()
@@ -81,8 +79,8 @@ class MatchDetailsFragment : Fragment() , MatchDetailsSelectorsClickListener {
                            .commit()
                    }
                    }
-               }
-           }
+
+
         }
 
     }

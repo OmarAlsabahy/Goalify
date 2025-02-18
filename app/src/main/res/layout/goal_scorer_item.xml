@@ -44,4 +44,21 @@
         android:textSize="@dimen/_10sdp"
         android:gravity="center"
         android:id="@+id/awayAssist"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/homeScorer"
+        app:layout_constraintTop_toTopOf="@id/homeScorer"
+        app:layout_constraintBottom_toBottomOf="@id/homeScorer"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:id="@+id/homeTime"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/awayScorer"
+        app:layout_constraintTop_toTopOf="@id/awayScorer"
+        app:layout_constraintBottom_toBottomOf="@id/awayScorer"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:id="@+id/awayTime"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

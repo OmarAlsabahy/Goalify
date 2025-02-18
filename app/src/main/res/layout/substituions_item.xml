@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:weightSum="2">
+    android:layout_marginBottom="@dimen/_20sdp"
+    android:weightSum="3">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,8 +28,9 @@
             android:layout_height="@dimen/_20sdp"
             android:src="@drawable/outarrow"
             android:layout_weight="1"
+            android:scaleX="-1"
             android:layout_gravity="center"
-            android:id="@+id/HomePutArrow"/>
+            android:id="@+id/homeOutArrow"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,11 +47,39 @@
             android:src="@drawable/inarrow"
             android:layout_weight="1"
             android:layout_gravity="center"
-            android:scaleX="-1"
             android:id="@+id/homeInArrow"/>
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:weightSum="2"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/_15sdp"
+            android:fontFamily="@font/poppinsregular"
+            android:textColor="@color/cardNameColor"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_gravity="start"
+            android:foregroundGravity="center_horizontal"
+            android:id="@+id/homeTime"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/_15sdp"
+            android:fontFamily="@font/poppinsregular"
+            android:textColor="@color/cardNameColor"
+            android:layout_weight="1"
+            android:layout_gravity="end"
+            android:gravity="center"
+            android:foregroundGravity="center_horizontal"
+            android:id="@+id/awayTime"/>
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -73,7 +103,7 @@
             android:src="@drawable/outarrow"
             android:layout_weight="1"
             android:layout_gravity="center"
-            android:id="@+id/awayPutArrow"/>
+            android:id="@+id/awayOutArrow"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

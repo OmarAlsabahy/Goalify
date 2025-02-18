@@ -14,6 +14,7 @@ import android.view.ViewGroup
 import android.widget.DatePicker
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.goalify.Data.Enums.LeaguesId
 import com.example.goalify.Data.Models.MatchesResponseItem
 import com.example.goalify.Presentation.Adapters.LiveMatchesAdapter
 import com.example.goalify.Presentation.Adapters.MatchesAdapter
@@ -36,10 +37,13 @@ class HomeFragment : Fragment() , TopCompetitionClickListener ,MatchClickListene
         savedInstanceState: Bundle?
     ): View? {
 
-
-        Log.d("TAG", "onCreateView: ")
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        viewModel.setCompetitionId(LeaguesId.premierLeague.league_id)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
