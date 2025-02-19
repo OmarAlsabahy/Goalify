@@ -11,18 +11,18 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             tools:context=".Presentation.Fragments.HomeFragment"
             android:background="@color/backgroundColor">
-            <androidx.constraintlayout.widget.Guideline
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.05"
-                android:id="@+id/startGuide"/>
+            <include
+                layout="@layout/toolbar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/main_toolBar" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/startGuide"
+                app:layout_constraintTop_toBottomOf="@id/main_toolBar"
                 android:text="@string/live_score"
                 android:fontFamily="@font/poppinssemibold"
                 android:textSize="@dimen/_20sdp"

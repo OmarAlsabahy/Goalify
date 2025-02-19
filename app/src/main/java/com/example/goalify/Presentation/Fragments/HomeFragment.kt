@@ -9,9 +9,17 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.DatePicker
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.goalify.Data.Enums.LeaguesId
@@ -32,14 +40,16 @@ import java.time.format.DateTimeFormatter
 class HomeFragment : Fragment() , TopCompetitionClickListener ,MatchClickListener {
     lateinit var binding: FragmentHomeBinding
     val viewModel : HomeViewModel by viewModels()
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
+
 
     override fun onStart() {
         super.onStart()
@@ -54,6 +64,26 @@ class HomeFragment : Fragment() , TopCompetitionClickListener ,MatchClickListene
                 resources.getColor(R.color.secondaryColor , null)) , null , Shader.TileMode.CLAMP )
         binding.txtLiveScore.paint.shader = shader
 
+        val toolbar = view.findViewById<Toolbar>(R.id.main_toolBar)
+        (activity as? AppCompatActivity)?.setSupportActionBar(toolbar)
+        toolbar.overflowIcon = ContextCompat.getDrawable(requireContext() , R.drawable.overflowicon)
+        requireActivity().addMenuProvider(object:MenuProvider{
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menuInflater.inflate(R.menu.main_menu,menu)
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                when(menuItem.itemId){
+                    R.id.top_scorer->{
+                        Toast.makeText(requireContext(), "Top Scorer", Toast.LENGTH_SHORT).show()
+                    }
+                    R.id.top_assist->{
+                        Toast.makeText(requireContext(), "Top Assist", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                return true
+            }
+        },viewLifecycleOwner)
         //observeCompetitions
         viewModel.competitions.observe(viewLifecycleOwner){competitions->
             val adapter = TopCompetitionAdapter(competitions , this)
@@ -108,8 +138,10 @@ class HomeFragment : Fragment() , TopCompetitionClickListener ,MatchClickListene
         }
     }
 
-
-
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.main_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
 
     override fun onCompetitionClicked(id: Int) {
         val date = LocalDate.now()
@@ -120,6 +152,7 @@ class HomeFragment : Fragment() , TopCompetitionClickListener ,MatchClickListene
         binding.todayMatchesRecycler.visibility = View.GONE
         binding.txtNoEventFound.visibility = View.GONE
     }
+
 
     override fun onMatchClicked(match: MatchesResponseItem) {
         findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToMatchDetailsFragment(match))
