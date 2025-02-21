@@ -22,4 +22,16 @@ interface ApiServices {
         @Query("league_id")league_id:Int,
         @Query("match_live")live:Int = 1
     ):JsonElement
+
+    @GET("/")
+    suspend fun getTopScorers(
+        @Query("action")action: String,
+        @Query("league_id")league_id: Int
+    ):JsonElement
+
+    @GET("/")
+    suspend fun getPlayer(
+        @Query("action")action: String,
+        @Query("player_id")playerId:Long
+    ):JsonElement
 }

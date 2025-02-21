@@ -33,4 +33,9 @@
     <string name="substitutions">Substitutions</string>
     <string name="goals_scorer">Goals Scorer</string>
     <string name="goalify">Goalify</string>
+    <string name="top_scorer">Top Scorer</string>
+    <string name="playername">PlayerName</string>
+    <string name="teamname">TeamName</string>
+    <string name="playerimage">PlayerImage</string>
+    <string name="playergoals">PlayerGoals</string>
 </resources>

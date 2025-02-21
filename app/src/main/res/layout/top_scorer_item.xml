@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/_10sdp"
+    android:layout_marginBottom="@dimen/_20sdp"
+    app:cardElevation="@dimen/_5sdp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/backgroundColor"
+        android:weightSum="4">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/playerImage"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/poppinsregular"
+            android:textSize="@dimen/_10sdp"
+            android:layout_gravity="center"
+            android:textColor="@color/cardNameColor"
+            android:id="@+id/playerName"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/poppinsregular"
+            android:textSize="@dimen/_10sdp"
+            android:layout_gravity="center"
+            android:textColor="@color/cardNameColor"
+            android:id="@+id/teamName"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:fontFamily="@font/poppinsregular"
+            android:textSize="@dimen/_10sdp"
+            android:textColor="@color/cardNameColor"
+            android:id="@+id/playerGoals"/>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

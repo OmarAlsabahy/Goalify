@@ -65,5 +65,6 @@ dependencies {
     implementation(libs.glide)
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
+    implementation(libs.circleimageview)
 
 }

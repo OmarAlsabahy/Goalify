@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeFragment_to_matchDetailsFragment"
             app:destination="@id/matchDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_topScorerFragment"
+            app:destination="@id/topScorerFragment" />
     </fragment>
     <fragment
         android:id="@+id/matchDetailsFragment"
@@ -22,5 +25,14 @@
         <argument
             android:name="match"
             app:argType="com.example.goalify.Data.Models.MatchesResponseItem" />
+    </fragment>
+    <fragment
+        android:id="@+id/topScorerFragment"
+        android:name="com.example.goalify.Presentation.Fragments.TopScorerFragment"
+        android:label="fragment_top_scorer"
+        tools:layout="@layout/fragment_top_scorer" >
+        <argument
+            android:name="competitionId"
+            app:argType="integer" />
     </fragment>
 </navigation>

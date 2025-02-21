@@ -67,15 +67,24 @@ class HomeFragment : Fragment() , TopCompetitionClickListener ,MatchClickListene
         val toolbar = view.findViewById<Toolbar>(R.id.main_toolBar)
         (activity as? AppCompatActivity)?.setSupportActionBar(toolbar)
         toolbar.overflowIcon = ContextCompat.getDrawable(requireContext() , R.drawable.overflowicon)
+
+
+        //implement menu
         requireActivity().addMenuProvider(object:MenuProvider{
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
                 menuInflater.inflate(R.menu.main_menu,menu)
+                for(i in 0 until menu.size()){
+                    val meuItem = menu.getItem(i).actionView
+                    meuItem?.setBackgroundColor(ContextCompat.getColor(requireContext(),R.color.backgroundColor))
+                }
             }
 
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
                 when(menuItem.itemId){
                     R.id.top_scorer->{
-                        Toast.makeText(requireContext(), "Top Scorer", Toast.LENGTH_SHORT).show()
+                        viewModel.competitionId.observe(viewLifecycleOwner){competitionId->
+                            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToTopScorerFragment(competitionId))
+                        }
                     }
                     R.id.top_assist->{
                         Toast.makeText(requireContext(), "Top Assist", Toast.LENGTH_SHORT).show()

@@ -5,6 +5,5 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/gradient_color"
     app:titleTextColor="@color/white"
-    app:popupTheme="@style/PopUpTheme"
     android:id="@+id/app_toolBar">
 </androidx.appcompat.widget.Toolbar>
