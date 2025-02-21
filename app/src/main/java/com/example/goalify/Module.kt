@@ -3,15 +3,18 @@ package com.example.goalify
 import com.example.goalify.Data.Api.ApiServices
 import com.example.goalify.Data.Intefaces.IDetailsRepo
 import com.example.goalify.Data.Intefaces.IHomeRepo
+import com.example.goalify.Data.Intefaces.ITopAssistRepo
 import com.example.goalify.Data.Intefaces.ITopScorerRepo
 import com.example.goalify.Data.Repositories.DetailsRepo
 import com.example.goalify.Data.Repositories.HomeRepo
+import com.example.goalify.Data.Repositories.TopAssistRepo
 import com.example.goalify.Data.Repositories.TopScorerRepo
 import com.example.goalify.Domain.LiveMatchesDomain
 import com.example.goalify.Domain.MatchDetailsSelectorDomain
 import com.example.goalify.Domain.MatchGoalScorerDomain
 import com.example.goalify.Domain.MatchesDomain
 import com.example.goalify.Domain.StateDomain
+import com.example.goalify.Domain.TopAssistDomain
 import com.example.goalify.Domain.TopCompetitions
 import com.example.goalify.Domain.TopScorerDomain
 import dagger.Module
@@ -116,6 +119,18 @@ object Module {
     @Singleton
     fun getTopScorerDomain(repo: ITopScorerRepo):TopScorerDomain{
         return TopScorerDomain(repo)
+    }
+
+    @Provides
+    @Singleton
+    fun getITopAssistRepo(apiServices: ApiServices):ITopAssistRepo{
+        return TopAssistRepo(apiServices)
+    }
+
+    @Provides
+    @Singleton
+    fun getTopAssistDomain(repo:ITopAssistRepo):TopAssistDomain{
+        return TopAssistDomain(repo)
     }
 
 }

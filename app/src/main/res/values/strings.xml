@@ -38,4 +38,6 @@
     <string name="teamname">TeamName</string>
     <string name="playerimage">PlayerImage</string>
     <string name="playergoals">PlayerGoals</string>
+    <string name="top_assist">Top Assist</string>
+    <string name="player_assists">Player Assists</string>
 </resources>

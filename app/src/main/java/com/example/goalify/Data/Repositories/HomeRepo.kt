@@ -16,18 +16,20 @@ class HomeRepo @Inject constructor(private val api:ApiServices) : IHomeRepo {
         action: String,
         from: String,
         to: String,
-        league_id: Int
+        league_id: Int,
+        timeZone:String
     ): JsonElement {
-        return api.getMatchesByLeagueIdAndDate(action , from , to , league_id)
+        return api.getMatchesByLeagueIdAndDate(action , from , to , league_id,timeZone)
     }
 
     override suspend fun getLiveMatches(
         action: String,
         from: String,
         to: String,
-        league_id: Int
+        league_id: Int,
+        timeZone: String
     ): JsonElement {
-        return api.getLiveMatches(action , from , to , league_id)
+        return api.getLiveMatches(action=action , from=from , to=to , league_id = league_id , timeZone = timeZone)
     }
 
 

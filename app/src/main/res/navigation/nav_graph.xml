@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_homeFragment_to_topScorerFragment"
             app:destination="@id/topScorerFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_topAssistFragment"
+            app:destination="@id/topAssistFragment" />
     </fragment>
     <fragment
         android:id="@+id/matchDetailsFragment"
@@ -31,6 +34,14 @@
         android:name="com.example.goalify.Presentation.Fragments.TopScorerFragment"
         android:label="fragment_top_scorer"
         tools:layout="@layout/fragment_top_scorer" >
+        <argument
+            android:name="competitionId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/topAssistFragment"
+        android:name="com.example.goalify.Presentation.Fragments.TopAssistFragment"
+        android:label="TopAssistFragment" >
         <argument
             android:name="competitionId"
             app:argType="integer" />

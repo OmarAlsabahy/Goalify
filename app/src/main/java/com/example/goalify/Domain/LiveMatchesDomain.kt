@@ -1,5 +1,6 @@
 package com.example.goalify.Domain
 
+import android.icu.util.TimeZone
 import com.example.goalify.Data.Intefaces.IHomeRepo
 import com.google.gson.JsonElement
 import javax.inject.Inject
@@ -11,7 +12,8 @@ class LiveMatchesDomain @Inject constructor(private val repo:IHomeRepo) {
         to: String,
         league_id: Int
     ): JsonElement {
-        return repo.getLiveMatches(action,from,to,league_id)
+         val timeZone = TimeZone.getDefault().id
+        return repo.getLiveMatches(action,from,to,league_id,timeZone)
     }
 
 }

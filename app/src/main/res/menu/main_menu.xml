@@ -4,7 +4,4 @@
     <item
         android:id="@+id/top_scorer"
         android:title="TopScorer" />
-    <item
-        android:id="@+id/top_assist"
-        android:title="TopAssist" />
 </menu>

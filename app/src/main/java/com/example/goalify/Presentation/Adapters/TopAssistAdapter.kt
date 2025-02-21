@@ -7,7 +7,7 @@ import com.bumptech.glide.Glide
 import com.example.goalify.Data.Models.TopScorersWithImageModel
 import com.example.goalify.databinding.TopScorerAssistItemBinding
 
-class TopScorerAdapter(private val topScorers:List<TopScorersWithImageModel>):RecyclerView.Adapter<TopScorerAdapter.ViewHolder>() {
+class TopAssistAdapter(private val topScorers:List<TopScorersWithImageModel>):RecyclerView.Adapter<TopAssistAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = TopScorerAssistItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return ViewHolder(binding)
@@ -25,16 +25,15 @@ class TopScorerAdapter(private val topScorers:List<TopScorersWithImageModel>):Re
         holder.bind(topScorers[position])
     }
 
-    inner class ViewHolder(private val binding:TopScorerAssistItemBinding):RecyclerView.ViewHolder(binding.root){
+    inner class ViewHolder(private val binding: TopScorerAssistItemBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(topScorerModelItem: TopScorersWithImageModel) {
             binding.playerName.text = topScorerModelItem.topScorer.player_name
             binding.teamName.text = topScorerModelItem.topScorer.team_name
-            binding.playerGoals.text = topScorerModelItem.topScorer.goals
+            binding.playerGoals.text = topScorerModelItem.topScorer.assists
             Glide.with(binding.root)
                 .load(topScorerModelItem.imageUrl)
                 .into(binding.playerImage)
         }
 
     }
-
 }

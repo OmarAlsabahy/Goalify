@@ -1,12 +1,8 @@
 package com.example.goalify.Presentation.Fragments
 
-import android.app.DatePickerDialog
-import android.app.DatePickerDialog.OnDateSetListener
 import android.graphics.LinearGradient
 import android.graphics.Shader
-import android.icu.util.Calendar
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.Menu
@@ -14,8 +10,6 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.DatePicker
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
@@ -86,9 +80,6 @@ class HomeFragment : Fragment() , TopCompetitionClickListener ,MatchClickListene
                             findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToTopScorerFragment(competitionId))
                         }
                     }
-                    R.id.top_assist->{
-                        Toast.makeText(requireContext(), "Top Assist", Toast.LENGTH_SHORT).show()
-                    }
                 }
                 return true
             }
@@ -147,10 +138,6 @@ class HomeFragment : Fragment() , TopCompetitionClickListener ,MatchClickListene
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.main_menu, menu)
-        super.onCreateOptionsMenu(menu, inflater)
-    }
 
     override fun onCompetitionClicked(id: Int) {
         val date = LocalDate.now()
