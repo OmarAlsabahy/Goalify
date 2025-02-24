@@ -142,8 +142,12 @@ class HomeFragment : Fragment() , TopCompetitionClickListener ,MatchClickListene
     override fun onCompetitionClicked(id: Int) {
         val date = LocalDate.now()
         val format = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+        if (viewModel.getMatchDate().isEmpty()){
+            viewModel.getMatchesByIdAndDate(from = date.format(format) , to=date.format(format) , id)
+        }else{
+            viewModel.getMatchesByIdAndDate(from = viewModel.getMatchDate() , to=viewModel.getMatchDate() , id)
+        }
         viewModel.setCompetitionId(id)
-       viewModel.getMatchesByIdAndDate(from = date.format(format) , to=date.format(format) , id)
         binding.progress.visibility = View.VISIBLE
         binding.todayMatchesRecycler.visibility = View.GONE
         binding.txtNoEventFound.visibility = View.GONE

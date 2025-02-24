@@ -68,6 +68,9 @@ class TopCompetitionAdapter(private val competitions:Array<Competition> , privat
                 Competition.serieA.competitionName -> listener.onCompetitionClicked(LeaguesId.seriaA.league_id)
                 Competition.ligue1.competitionName -> listener.onCompetitionClicked(LeaguesId.ligue1.league_id)
                 Competition.egyptianLeague.competitionName -> listener.onCompetitionClicked(LeaguesId.egyptianLeague.league_id)
+                Competition.CopaDelRey.competitionName->listener.onCompetitionClicked(LeaguesId.CopaDelRey.league_id)
+                Competition.CommunityShield.competitionName->listener.onCompetitionClicked(LeaguesId.CommunityShield.league_id)
+                Competition.FACup.competitionName->listener.onCompetitionClicked(LeaguesId.FACup.league_id)
             }
         }
 

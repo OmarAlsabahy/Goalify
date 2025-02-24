@@ -32,7 +32,7 @@ object Module {
     @Provides
     @Singleton
     fun provideOkHttpClient(): OkHttpClient {
-        val apiKey = "9f968e0529bf75e103cbca188164be31c3777b7f719aa43bf8f2e44b9d847af7"
+        val apiKey = "79d2cb50de6ba96768d16cf65dbf450351b263da1a2c319dc18140c95a457f41"
 
         return OkHttpClient.Builder()
             .addInterceptor { chain->

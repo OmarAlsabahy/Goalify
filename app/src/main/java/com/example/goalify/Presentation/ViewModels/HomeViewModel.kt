@@ -140,6 +140,14 @@ class HomeViewModel @Inject constructor(private val topCompetitions: TopCompetit
         getMatchesByIdAndDate(date , date , _competitionId.value!!)
     }
 
+    fun getMatchDate():String{
+        if (_matchesDate.value.isNullOrEmpty()){
+            return ""
+        }else{
+            return _matchesDate.value!!
+        }
+    }
+
     private fun displayDatePickerDialog(context: Context,year: Int, month: Int, day: Int) {
         val dialog = DatePickerDialog(context , object: OnDateSetListener {
             override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
